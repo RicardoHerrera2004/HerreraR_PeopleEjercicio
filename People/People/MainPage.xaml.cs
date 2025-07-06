@@ -15,8 +15,15 @@ public partial class MainPage : ContentPage
     {
         statusMessage.Text = "";
 
-        App.PersonRepo.AddNewPerson(newPerson.Text);
-        statusMessage.Text = App.PersonRepo.StatusMessage;
+    App.PersonRepo.AddNewPerson(newPerson.Text);
+    statusMessage.Text = App.PersonRepo.StatusMessage;
+
+    if (!string.IsNullOrWhiteSpace(newPerson.Text))
+    {
+        DisplayAlert("Éxito", "¡Nombre guardado correctamente!", "OK");
+    }
+
+    newPerson.Text = ""; // Opcional: limpia el campo
     }
 
     public void OnGetButtonClicked(object sender, EventArgs args)
