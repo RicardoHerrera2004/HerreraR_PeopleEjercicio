@@ -11,6 +11,7 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
+    //Boton para guardar 
     public void OnNewButtonClicked(object sender, EventArgs args)
     {
         statusMessage.Text = "";
@@ -18,14 +19,16 @@ public partial class MainPage : ContentPage
     App.PersonRepo.AddNewPerson(newPerson.Text);
     statusMessage.Text = App.PersonRepo.StatusMessage;
 
-    if (!string.IsNullOrWhiteSpace(newPerson.Text))
+        //Alerta de éxito de guardado
+        if (!string.IsNullOrWhiteSpace(newPerson.Text))
     {
         DisplayAlert("Éxito", "¡Nombre guardado correctamente!", "OK");
     }
 
-    newPerson.Text = ""; // Opcional: limpia el campo
+    newPerson.Text = "";
     }
 
+    //Boton para obtener todos los registros
     public void OnGetButtonClicked(object sender, EventArgs args)
     {
         statusMessage.Text = "";
